@@ -754,7 +754,21 @@
 <li><a href="Salvem as Baleias.swf" target="_blank">Salvem as Baleias</a></li>
 <li><a href="Verdadeiro ou Falso na Matematica.swf" target="_blank">Verdadeiro ou Falso na Matematica</a></li>
 
-
     </ul>
+     <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const ul = document.querySelector('ul');
+        const itens = Array.from(ul.querySelectorAll('li'));
+
+        itens.sort((a, b) => {
+          const nomeA = a.textContent.trim().toLowerCase();
+          const nomeB = b.textContent.trim().toLowerCase();
+          return nomeA.localeCompare(nomeB);
+        });
+
+        ul.innerHTML = '';
+        itens.forEach(item => ul.appendChild(item));
+      });
+    </script>
 </body>
 </html>
